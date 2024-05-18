@@ -6,7 +6,7 @@ Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
     shouldPlaySound: false,
-    shouldSetBadge: false,
+    shouldSetBadge: true,
   }),
 });
 
@@ -26,9 +26,9 @@ export default function Index() {
   async function schedulePushNotification(date: Date) {
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: "Scheduled Notification",
-        body: 'This is a test notification',
-        data: { data: 'goes here' },
+        title: "Está na hora de sair",
+        body: 'Va para Fatec',
+        data: { uri: 'geo:0.0?q="Fatec Maua"' },
       },
       trigger: date,
     });
